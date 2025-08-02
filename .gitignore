@@ -9,7 +9,6 @@ venv/
 myapp/migrations/
 
 # SQLite database (if using it)
-db.sqlite3
 
 # VSCode or other editor configs
 .vscode/
