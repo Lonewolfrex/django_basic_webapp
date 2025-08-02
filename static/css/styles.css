@@ -1,10 +1,10 @@
 /* Base styles */
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #ece5dd; /* WhatsApp background color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; /* Facebook background */
     margin: 0;
     padding: 0;
-    color: #202c33; /* Dark text color */
+    color: #050505; /* Facebook text color */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,71 +12,71 @@ body {
 
 /* Container to hold the content with padding */
 .container {
-    flex: 1; /* So container grows and footer sticks to bottom */
+    flex: 1;
     width: 90%;
     max-width: 800px;
     margin: 20px auto;
     background: white;
     padding: 30px 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Header styles */
 header {
-    background-color: #075e54; /* WhatsApp primary green */
+    background-color: #1877f2; /* Facebook blue */
     color: white;
     padding: 15px 20px;
     text-align: center;
     font-size: 1.8em;
     font-weight: 600;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer styles */
 footer {
-    background-color: #128c7e; /* WhatsApp secondary green */
-    color: white;
+    background-color: #e7f3ff; /* Facebook light blue */
+    color: #1877f2;
     text-align: center;
     padding: 12px 20px;
     font-size: 0.9em;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
-    margin-top: auto; /* Push footer to bottom */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    margin-top: auto;
 }
 
 /* Headings */
 h1 {
-    color: #075e54;
+    color: #1877f2;
     margin-top: 0;
 }
 
 /* Links */
 a {
-    color: #25d366; /* WhatsApp bright green accent */
+    color: #1877f2;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #128c7e;
+    color: #165fc1;
     text-decoration: underline;
 }
 
 /* Buttons */
 button {
-    background-color: #25d366;
+    background-color: #1877f2;
     border: none;
     color: white;
     padding: 10px 22px;
     font-size: 1em;
-    border-radius: 25px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #128c7e;
+    background-color: #165fc1;
 }
 
 /* Form inputs */
@@ -86,21 +86,21 @@ input[type="password"] {
     padding: 10px 12px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1.8px solid #ddd;
-    border-radius: 5px;
+    border: 1.5px solid #ccd0d5;
+    border-radius: 6px;
     font-size: 1em;
     transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #25d366;
+    border-color: #1877f2;
     outline: none;
 }
 
 /* Error message */
 .error {
-    color: #d93025; /* a red error tone */
+    color: #d93025;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -112,7 +112,7 @@ input[type="password"]:focus {
         padding: 20px;
     }
     header {
-        font-size: 1.4em;
+        font-size: 1.5em;
         padding: 12px 15px;
     }
     footer {
