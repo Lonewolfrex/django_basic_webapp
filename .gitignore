@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment folder
+venv/
+
+# Django migrations
+myapp/migrations/
+
+# SQLite database (if using it)
+db.sqlite3
+
+# VSCode or other editor configs
+.vscode/
+.idea/
