@@ -90,8 +90,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # ✅ static folder at project root
 
 # Redirects after login/logout
-LOGIN_REDIRECT_URL = 'home'         # → make sure this URL name exists
-LOGOUT_REDIRECT_URL = 'landing'     # → landing page after logout
+LOGIN_REDIRECT_URL = 'users:login'        # → make sure this URL name exists
+LOGOUT_REDIRECT_URL = 'users:home'    # → landing page after logout
 
 # Default auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

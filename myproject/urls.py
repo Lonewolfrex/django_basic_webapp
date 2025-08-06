@@ -1,15 +1,14 @@
-# myproject/urls.py
-
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # ✅ User authentication and landing/home views
-    path('', include('users.urls')),       # Handles: landing, login, register, logout, home
+    # ✅ Routes for landing page, login, register, logout, home
+    path('', include('users.urls')),
 
-    # ✅ Contacts app (add/edit/delete/view contacts)
+    # ✅ Routes for contact management
     path('contacts/', include('contacts.urls')),
 ]
+
 
