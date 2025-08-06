@@ -2,16 +2,17 @@
 {% block title %}Your Contacts{% endblock %}
 {% block content %}
   <h2>Your Contacts</h2>
-  <a href="{% url 'contacts:add' %}">+ Add Contact</a>
+  <a href="{% url 'contacts:add_contact' %}">+ Add Contact</a>
   <ul>
     {% for contact in contacts %}
       <li>
         {{ contact.name }} - {{ contact.phone }}
-        [<a href="{% url 'contacts:edit' contact.pk %}">Edit</a> |
-         <a href="{% url 'contacts:delete' contact.pk %}">Delete</a>]
+        [<a href="{% url 'contacts:edit_contact' contact.pk %}">Edit</a> |
+         <a href="{% url 'contacts:delete_contact' contact.pk %}">Delete</a>]
       </li>
     {% empty %}
       <p>No contacts found.</p>
     {% endfor %}
   </ul>
 {% endblock %}
+

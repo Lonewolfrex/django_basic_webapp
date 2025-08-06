@@ -5,5 +5,9 @@
 {% block content %}
 <h1>Hello, {{ request.user.username }}!</h1>
 <p>Welcome to the Home Page.</p>
-<p><a href="{% url 'logout' %}">Logout</a></p>
+
+{% if request.user.is_authenticated %}
+    <p><a href="{% url 'contacts:list_contacts' %}">📇 My Contacts</a></p>
+    <p><a href="{% url 'users:logout' %}">Logout</a></p>
+{% endif %}
 {% endblock %}
