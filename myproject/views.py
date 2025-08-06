@@ -1,0 +1,39 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Contact
+from .forms import ContactForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def list_contacts(request):
+    contacts = Contact.objects.filter(user=request.user)
+    return render(request, 'contacts/list.html', {'contacts': contacts})
+
+@login_required
+def add_contact(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        contact = form.save(commit=False)
+        contact.user = request.user
+        contact.save()
+        return redirect('contacts:list')
+    return render(request, 'contacts/add.html', {'form': form})
+
+@login_required
+def edit_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk, user=request.user)
+    form = ContactForm(request.POST or None, instance=contact)
+    if form.is_valid():
+        form.save()
+        return redirect('contacts:list')
+    return render(request, 'contacts/edit.html', {'form': form})
+
+@login_required
+def delete_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk, user=request.user)
+    if request.method == "POST":
+        contact.delete()
+        return redirect('contacts:list')
+    return render(request, 'contacts/delete.html', {'contact': contact})
+
+
+# Create your views here.
