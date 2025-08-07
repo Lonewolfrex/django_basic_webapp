@@ -39,12 +39,12 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # ✅ global templates folder
+        'DIRS': [BASE_DIR / 'templates'],  # global templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # ✅ required for login
+                'django.template.context_processors.request',  # required for login templates
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -66,7 +66,7 @@ DATABASES = {
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # default minimum length (8)
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
@@ -81,11 +81,11 @@ USE_TZ = True
 
 # Static files (CSS, JS, etc.)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # ✅ static folder at project root
+STATICFILES_DIRS = [BASE_DIR / 'static']  # static folder at project root
 
 # Redirects after login/logout
-LOGIN_REDIRECT_URL = 'users:login'        # → make sure this URL name exists
-LOGOUT_REDIRECT_URL = 'users:home'    # → landing page after logout
+LOGIN_REDIRECT_URL = 'users:login'    # Redirect after successful login (make sure this URL name exists)
+LOGOUT_REDIRECT_URL = 'users:home'    # Redirect after logout
 
-# Default auto field
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
