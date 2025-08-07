@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}Your Contacts{% endblock %}
+
 {% block content %}
   <h2>Your Contacts</h2>
-  <a href="{% url 'contacts:add_contact' %}">+ Add Contact</a>
+
+  <p><a href="{% url 'contacts:add_contact' %}">+ Add Contact</a></p>
+
   <ul>
     {% for contact in contacts %}
       <li>
         {{ contact.name }} - {{ contact.phone }}
-        [<a href="{% url 'contacts:edit_contact' contact.pk %}">Edit</a> |
+        [<a href="{% url 'contacts:detail' contact.pk %}">View</a> |
+         <a href="{% url 'contacts:edit_contact' contact.pk %}">Edit</a> |
          <a href="{% url 'contacts:delete_contact' contact.pk %}">Delete</a>]
       </li>
     {% empty %}

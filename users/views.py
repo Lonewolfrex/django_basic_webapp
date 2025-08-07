@@ -16,7 +16,7 @@ def login_view(request):
 
         if user:
             login(request, user)
-            return redirect('contacts:list_contacts')  # Redirect to contact list
+            return redirect('contacts:list')  # Redirect to contact list
         else:
             return render(request, 'users/login.html', {'error': 'Invalid credentials'})
 
@@ -28,7 +28,7 @@ def register(request):
     if form.is_valid():
         user = form.save()
         login(request, user)  # Auto login after registration
-        return redirect('contacts:list_contacts')  # Redirect to contact list
+        return redirect('contacts:list')  # Redirect to contact list
     return render(request, 'users/register.html', {'form': form})
 
 # ✅ Home view (optional if you want a home screen)
