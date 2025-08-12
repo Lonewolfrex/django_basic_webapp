@@ -3,7 +3,38 @@
 {% block title %}Landing Page{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Landing Page</h1>
-<p><a href="{% url 'users:login' %}">Login here</a></p>
-<p><a href="{% url 'users:register' %}">Register here</a></p>
+<h1>Welcome, to the Landing Page of Contact App</h1>
+<style>
+    .landing-container {
+        text-align: center;
+        margin-top: 100px;
+    }
+    .landing-container h1 {
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+        color: white; /* Adjust if needed */
+    }
+    .landing-btn {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        background-color: #2baa9bff; /* WhatsApp dark green */
+        transition: background-color 0.3s ease;
+    }
+    .landing-btn:hover {
+        background-color: #128C7E; /* WhatsApp lighter green */
+    }
+</style>
+
+<div class="landing-container">
+    <h1>Welcome to the Landing Page</h1>
+    <a href="{% url 'users:login' %}" class="landing-btn">Login</a>
+    <a href="{% url 'users:register' %}" class="landing-btn">Register</a>
+</div>
 {% endblock %}

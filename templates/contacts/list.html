@@ -2,21 +2,101 @@
 {% block title %}Your Contacts{% endblock %}
 
 {% block content %}
-  <h2>Your Contacts</h2>
+<style>
+    .contacts-table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
 
-  <p><a href="{% url 'contacts:add_contact' %}">+ Add Contact</a></p>
+    .contacts-table th {
+        background-color: #075E54; /* WhatsApp green */
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
 
-  <ul>
-    {% for contact in contacts %}
-      <li>
-        {{ contact.name }} - {{ contact.phone }}
-        [<a href="{% url 'contacts:detail' contact.pk %}">View</a> |
-         <a href="{% url 'contacts:edit_contact' contact.pk %}">Edit</a> |
-         <a href="{% url 'contacts:delete_contact' contact.pk %}">Delete</a>]
-      </li>
-    {% empty %}
-      <p>No contacts found.</p>
-    {% endfor %}
-  </ul>
+    .contacts-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .contacts-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .action-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .btn-view {
+        background-color: #25D366; /* WhatsApp light green */
+    }
+
+    .btn-edit {
+        background-color: #128C7E; /* Dark green */
+    }
+
+    .btn-delete {
+        background-color: #D32F2F; /* Red */
+    }
+
+    .btn-view:hover { background-color: #1ebf56; }
+    .btn-edit:hover { background-color: #0f756a; }
+    .btn-delete:hover { background-color: #b71c1c; }
+
+    .add-contact {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .add-contact:hover {
+        background-color: #1ebf56;
+    }
+</style>
+
+<div style="text-align:center;">
+    <a href="{% url 'contacts:add_contact' %}" class="add-contact">+ Add Contact</a>
+</div>
+
+<table class="contacts-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>
+                <a href="{% url 'contacts:detail' contact.pk %}" class="action-btn btn-view">View</a>
+                <a href="{% url 'contacts:edit_contact' contact.pk %}" class="action-btn btn-edit">Edit</a>
+                <a href="{% url 'contacts:delete_contact' contact.pk %}" class="action-btn btn-delete">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3" style="text-align:center;">No contacts found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
+
 

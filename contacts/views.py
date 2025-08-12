@@ -40,6 +40,10 @@ def contact_detail(request, contact_id):
 @login_required
 def delete_contact(request, contact_id):
     contact = get_object_or_404(Contact, id=contact_id, user=request.user)
-    contact.delete()
-    return redirect('contacts:list')  # ✅ fixed
 
+    if request.method == "POST":
+        contact.delete()
+        return redirect('contacts:list')  # Redirect to contacts list after deletion
+
+    # If GET request, show confirmation page
+    return render(request, 'contacts/delete.html', {'contact': contact})

@@ -1,10 +1,66 @@
 {% extends 'base.html' %}
 {% block title %}Delete Contact{% endblock %}
+
 {% block content %}
-  <h2>Are you sure you want to delete {{ contact.name }}?</h2>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, Delete</button>
-    <a href="{% url 'contacts:list' %}">Cancel</a>
-  </form>
+<style>
+    .delete-container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+        padding: 20px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .delete-container h2 {
+        color: #075E54; /* WhatsApp green */
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .delete-container p {
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .delete-container button {
+        background-color: #075E54; /* WhatsApp green */
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .delete-container button:hover {
+        background-color: #064e46; /* Darker green */
+    }
+
+    .delete-container a {
+        color: #075E54;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .delete-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="delete-container">
+    <h2>Delete Contact</h2>
+    <p>Are you sure you want to delete <strong>{{ contact.name }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit"> Yes, Delete</button>
+        <a href="{% url 'contacts:list' %}">  Cancel</a>
+    </form>
+</div>
 {% endblock %}
+

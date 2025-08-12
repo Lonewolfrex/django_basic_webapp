@@ -6,23 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}My Website{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* ✅ WhatsApp Green Header */
+        header {
+            background-color: #2baa9bff;
+            color: white;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ✅ Flexbox Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between; /* Space between center links & logout */
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        /* ✅ Center navigation links */
+        .nav-center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-center a,
+        .nav-right a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        .nav-center a:hover,
+        .nav-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* ✅ Header Title */
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* ✅ Main Container */
+        .container {
+            padding: 20px;
+        }
+
+        /* ✅ Footer Style */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>My Contacts Application</h1>
         
-        <!-- ✅ Navigation Bar (Conditional Links) -->
-        <nav>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'users:home' %}">🏠 Home</a> |
-                <a href="{% url 'contacts:list' %}">📇 My Contact</a> |  <!-- 🔧 FIXED -->
-                <a href="{% url 'users:logout' %}">🚪 Logout</a>
-            {% else %}
-                <a href="{% url 'users:landing' %}">🏠 Landing</a> |
-                <a href="{% url 'users:login' %}">🔐 Login</a> |
-                <a href="{% url 'users:register' %}">📝 Register</a>
-            {% endif %}
-        </nav>
+        {% if request.user.is_authenticated %}
+            <nav>
+                <div class="nav-center">
+                    <a href="{% url 'users:home' %}">🏠 Home</a>
+                    <a href="{% url 'contacts:list' %}">📇 My Contact</a>
+                </div>
+                <div class="nav-right">
+                    <a href="{% url 'users:logout' %}">🚪 Logout</a>
+                </div>
+            </nav>
+        {% endif %}
     </header>
 
     <div class="container">
@@ -34,3 +90,6 @@
     </footer>
 </body>
 </html>
+
+
+

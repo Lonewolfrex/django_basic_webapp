@@ -7,7 +7,7 @@
 <p>Welcome to the Home Page.</p>
 
 {% if request.user.is_authenticated %}
-    <p><a href="{% url 'contacts:list' %}">📇 My Contacts</a></p>
-    <p><a href="{% url 'users:logout' %}">Logout</a></p>
+    <p><a href="{% url 'contacts:list' %}"></a></p>
 {% endif %}
 {% endblock %}
+
