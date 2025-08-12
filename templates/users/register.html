@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Register{% endblock %}
+
 {% block content %}
   <h2>Create Account</h2>
   <form method="post">
@@ -7,4 +8,9 @@
     {{ form.as_p }}
     <button type="submit">Register</button>
   </form>
+
+  <!-- Go to Login Button -->
+  <a href="{% url 'users:login' %}" style="display: inline-block; margin-top: 10px; padding: 8px 12px; background-color: #06c46bff; color: white; text-decoration: none; border-radius: 5px;">
+    Go to Login
+  </a>
 {% endblock %}
